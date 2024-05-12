@@ -114,7 +114,7 @@
             <li class="nav-item {{ Nav::isRoute('profile') }}">
                 <a class="nav-link" href="{{ route('profile') }}">
                     <i class="fas fa-fw fa-user"></i>
-                    <span>{{ __('Profile') }}</span>
+                    <span>{{ __('Perfil') }}</span>
                 </a>
             </li>
 
@@ -122,7 +122,7 @@
             <li class="nav-item {{ Nav::isRoute('about') }}">
                 <a class="nav-link" href="{{ route('about') }}">
                     <i class="fas fa-fw fa-hands-helping"></i>
-                    <span>{{ __('About') }}</span>
+                    <span>{{ __('Acerca') }}</span>
                 </a>
             </li>
 
@@ -367,7 +367,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; <a href="https://github.com/aleckrh" target="_blank">Aleckrh</a>
+                        <span>Copyright &copy; <a href="https://github.com/aleckrh" target="_blank">UTN</a>
                             {{ now()->year }}</span>
                     </div>
                 </div>
