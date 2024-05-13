@@ -11,7 +11,7 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">{{ __('Reset Password') }}</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">{{ __('Recupera tu Contraseña') }}</h1>
                                 </div>
 
                                 @if ($errors->any())
@@ -30,7 +30,7 @@
                                     <input type="hidden" name="token" value="{{ $token }}">
 
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" name="email" placeholder="{{ __('E-Mail Address') }}" value="{{ $email ?? old('email') }}" required autofocus>
+                                        <input type="email" class="form-control form-control-user" name="email" placeholder="{{ __('Correo Electronico') }}" value="{{ $email ?? old('email') }}" required autofocus>
                                     </div>
 
                                     <div class="form-group">
@@ -43,7 +43,7 @@
 
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            {{ __('Reset Password') }}
+                                            {{ __('Recupera tu contraseña') }}
                                         </button>
                                     </div>
                                 </form>
