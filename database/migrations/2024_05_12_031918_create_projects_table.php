@@ -16,11 +16,11 @@ return new class extends Migration
             $table->string('name');
             $table->date('start_date');
             $table->date('end_date');
-            $table->enum('status', ['iniciado', 'en_progreso', 'cancelado', 'completado'])->default('iniciado');
+            $table->enum('status', ['initiated', 'in_progress', 'cancelled', 'completed'])->default('initiated');
             $table->float('progress_percentage')->default(0);
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
-        
+
             // foreign key
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
         });
