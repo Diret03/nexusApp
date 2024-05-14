@@ -88,7 +88,7 @@
             <!-- Nav Item - Usuarios-->
             <li class="nav-item {{ Nav::isRoute('users') }}">
                 <a class="nav-link" href="{{ route('users.index') }}">
-                    <i class="fas fa-fw fa-user-circle"></i>
+                    <i class="bi bi-person-badge"></i>
                     <span>{{ __('Usuarios') }}</span>
                 </a>
             </li>
