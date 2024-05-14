@@ -18,7 +18,7 @@
     </nav>
     <div class="mensaje">
         <h1>BIENVENIDO A NEXUS</h1>
-        <p>Desarrollamos el Software de acuerdo a tu necesidad</p>
+        <p>Desarrollamos Software de acuerdo a tu necesidad</p>
     </div>
 </body>
 </html>
