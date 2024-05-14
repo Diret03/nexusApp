@@ -37,7 +37,7 @@
                                         <tr>
                                             <td>{{ $interview->date->format('Y-m-d') }}</td>
                                             <td>{{ $interview->description }}</td>
-                                            <td>{{ $interview->status ? 'Aceptado' : 'Archivado' }}</td>
+                                            <td>{{ $interview->status }}</td>
                                             <td>{{ $interview->client->name }}</td>
                                             <td>
                                                 <!-- Botón para editar -->
