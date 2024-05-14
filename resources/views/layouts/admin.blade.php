@@ -77,6 +77,14 @@
                 </a>
             </li>
 
+            <!-- Nav Item - Entrevitas-->
+            <li class="nav-item {{ Nav::isRoute('interviews') }}">
+                <a class="nav-link" href="{{ route('interviews.index') }}">
+                    <i class="fas fa-fw fa-folder-open"></i>
+                    <span>{{ __('Entrevistas') }}</span>
+                </a>
+            </li>
+
 
             <!-- Nav Item - Clientes-->
             {{-- <li class="nav-item">

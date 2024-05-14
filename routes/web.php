@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\InterviewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,10 +42,14 @@ Route::get('/clients/{client}/edit', [ClientController::class, 'edit'])->name('c
 Route::put('/clients/{client}', [ClientController::class, 'update'])->name('clients.update');
 Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
 
+Route::get('/interviews', [InterviewController::class, 'index'])->name('interviews.index');
+Route::get('/interviews/create', [InterviewController::class, 'create'])->name('interviews.create');
+Route::post('/interviews', [InterviewController::class, 'store'])->name('interviews.store');
+Route::get('/interviews/{interview}/edit', [InterviewController::class, 'edit'])->name('interviews.edit');
+Route::put('/interviews/{interview}', [InterviewController::class, 'update'])->name('interviews.update');
+Route::delete('/interviews/{interview}', [InterviewController::class, 'destroy'])->name('interviews.destroy');
 
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
-
-
