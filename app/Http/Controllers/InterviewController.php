@@ -28,8 +28,9 @@ class InterviewController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
+            'name' => 'required|max:255',
             'date' => 'required|date',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string|max:10000',
             'status' => 'required|boolean',
             'client_id' => 'required|exists:clients,id',
         ]);
@@ -61,8 +62,9 @@ class InterviewController extends Controller
     public function update(Request $request, Interview $interview)
     {
         $validatedData = $request->validate([
+            'name' => 'required|max:255',
             'date' => 'required|date',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string|max:10000',
             'status' => 'required|boolean',
             'client_id' => 'required|exists:clients,id',
         ]);

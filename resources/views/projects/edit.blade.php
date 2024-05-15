@@ -61,6 +61,15 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group">
+            <label for="interview_id">Entrevista aceptada:</label>
+            <select class="form-control" id="interview_id" name="interview_id">
+                <option value="">Seleccione una entrevista aceptada</option>
+                @foreach ($interviews as $interview)
+                    <option value="{{ $interview->id }}">{{ $interview->name }}</option>
+                @endforeach
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Guardar cambios</button>
     </form>
 @endsection

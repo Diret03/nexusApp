@@ -16,6 +16,7 @@ class Project extends Model
         'status',
         'progress_percentage',
         'client_id',
+        'interview_id',
     ];
 
     protected $casts = [
@@ -23,11 +24,28 @@ class Project extends Model
         'end_date' => 'date',
     ];
 
+
+    public function getStatusAttribute($value)
+    {
+        $statuses = [
+            'initiated' => 'Iniciado',
+            'in_progress' => 'En Progreso',
+            'cancelled' => 'Cancelado',
+            'completed' => 'Completado',
+        ];
+
+        return $statuses[$value] ?? null;
+    }
     /**
      * Obtiene el cliente asociado al proyecto.
      */
     public function client()
     {
         return $this->belongsTo(Client::class);
+    }
+
+    public function interview()
+    {
+        return $this->belongsTo(Interview::class);
     }
 }

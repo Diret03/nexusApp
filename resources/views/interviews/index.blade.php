@@ -25,8 +25,9 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
+                                        <th>Nombre</th>
                                         <th>Fecha</th>
-                                        <th>Descripción</th>
+                                        <th>Requerimientos</th>
                                         <th>Estado</th>
                                         <th>Cliente</th>
                                         <th>Acciones</th>
@@ -35,6 +36,7 @@
                                 <tbody>
                                     @foreach ($interviews as $interview)
                                         <tr>
+                                            <td>{{ $interview->name }}</td>
                                             <td>{{ $interview->date->format('Y-m-d') }}</td>
                                             <td>{{ $interview->description }}</td>
                                             <td>{{ $interview->status }}</td>

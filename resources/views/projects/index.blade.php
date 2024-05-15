@@ -27,6 +27,7 @@
                                     <tr>
                                         <th>Nombre</th>
                                         <th>Cliente</th>
+                                        <th>Entrevista(Contrato)</th>
                                         <th>Fecha de Inicio</th>
                                         <th>Fecha de Fin</th>
                                         <th>Estado</th>
@@ -39,6 +40,7 @@
                                         <tr>
                                             <td>{{ $project->name }}</td>
                                             <td>{{ $project->client->name }}</td>
+                                            <td>{{ $project->interview->name }}</td>
                                             <td>{{ $project->start_date->format('Y-m-d') }}</td>
                                             <td>{{ $project->end_date->format('Y-m-d') }}</td>
                                             <td>{{ $project->status }}</td>

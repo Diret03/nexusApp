@@ -29,6 +29,23 @@
             <label for="progress_percentage">Porcentaje de Avance:</label>
             <input type="number" class="form-control" id="progress_percentage" name="progress_percentage">
         </div>
+        {{-- <div class="form-group">
+            <label for="client_id">Entrevista aceptada:</label>
+            <select class="form-control" id="interview_id" name="interview_id">
+                @foreach ($interviews as $interview)
+                    <option value="{{ $interview->id }}">{{ $interview->name }}</option>
+                @endforeach
+            </select>
+        </div> --}}
+        <div class="form-group">
+            <label for="interview_id">Entrevista aceptada:</label>
+            <select class="form-control" id="interview_id" name="interview_id">
+                <option value="">Seleccione una entrevista aceptada</option>
+                @foreach ($interviews as $interview)
+                    <option value="{{ $interview->id }}">{{ $interview->name }}</option>
+                @endforeach
+            </select>
+        </div>
         <div class="form-group">
             <label for="client_id">Cliente:</label>
             <select class="form-control" id="client_id" name="client_id">
