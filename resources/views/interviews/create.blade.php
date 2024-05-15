@@ -5,11 +5,15 @@
     <form action="{{ route('interviews.store') }}" method="POST">
         @csrf
         <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="form-group">
             <label for="date">Fecha:</label>
             <input type="date" class="form-control" id="date" name="date">
         </div>
         <div class="form-group">
-            <label for="description">Descripción:</label>
+            <label for="description">Requerimientos:</label>
             <input type="text" class="form-control" id="description" name="description">
         </div>
         <div class="form-group">

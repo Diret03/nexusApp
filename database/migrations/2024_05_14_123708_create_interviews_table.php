@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('interviews', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->date('date');
-            $table->string('description', 255);
+            $table->text('description');
             $table->boolean('status');
             $table->unsignedBigInteger('client_id');
             $table->timestamps();

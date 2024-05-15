@@ -61,11 +61,11 @@
                 {{ __('Info') }}
             </div>
 
-            <!-- Nav Item - Proyectos-->
-            <li class="nav-item {{ Nav::isRoute('projects') }}">
-                <a class="nav-link" href="{{ route('projects.index') }}">
-                    <i class="fas fa-fw fa-percent"></i>
-                    <span>{{ __('Proyectos') }}</span>
+            <!-- Nav Item - Entrevitas-->
+            <li class="nav-item {{ Nav::isRoute('interviews') }}">
+                <a class="nav-link" href="{{ route('interviews.index') }}">
+                    <i class="fas fa-fw fa-folder-open"></i>
+                    <span>{{ __('Entrevistas') }}</span>
                 </a>
             </li>
 
@@ -77,11 +77,20 @@
                 </a>
             </li>
 
-            <!-- Nav Item - Entrevitas-->
-            <li class="nav-item {{ Nav::isRoute('interviews') }}">
-                <a class="nav-link" href="{{ route('interviews.index') }}">
-                    <i class="fas fa-fw fa-folder-open"></i>
-                    <span>{{ __('Entrevistas') }}</span>
+            <!-- Nav Item - Proyectos-->
+            <li class="nav-item {{ Nav::isRoute('projects') }}">
+                <a class="nav-link" href="{{ route('projects.index') }}">
+                    <i class="fas fa-fw fa-percent"></i>
+                    <span>{{ __('Proyectos') }}</span>
+                </a>
+            </li>
+
+
+            <!-- Nav Item - Usuarios-->
+            <li class="nav-item {{ Nav::isRoute('users') }}">
+                <a class="nav-link" href="{{ route('users.index') }}">
+                    <i class="fas fa-fw fa fa-user-circle"></i>
+                    <span>{{ __('Usuarios') }}</span>
                 </a>
             </li>
 

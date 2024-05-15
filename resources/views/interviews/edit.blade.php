@@ -6,11 +6,15 @@
         @csrf
         @method('PUT')
         <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ $interview->name }}">
+        </div>
+        <div class="form-group">
             <label for="date">Fecha:</label>
             <input type="date" class="form-control" id="date" name="date" value="{{ $interview->date }}">
         </div>
         <div class="form-group">
-            <label for="description">Descripción:</label>
+            <label for="description">Requerimientos:</label>
             <input type="text" class="form-control" id="description" name="description"
                 value="{{ $interview->description }}">
         </div>
@@ -30,6 +34,6 @@
                 @endforeach
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
     </form>
 @endsection

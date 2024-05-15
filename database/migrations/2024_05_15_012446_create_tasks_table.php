@@ -11,18 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->date('start_date');
             $table->date('end_date');
-            $table->enum('status', ['initiated', 'in_progress', 'cancelled', 'completed'])->default('initiated');
             $table->float('progress_percentage')->default(0);
-            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('analyst_id');
+            $table->unsignedBigInteger('project_id');
             $table->timestamps();
 
-            // foreign key
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            // foreign keys
+            $table->foreign('analyst_id')->references('id')->on('analysts')->onDelete('cascade');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('tasks');
     }
 };

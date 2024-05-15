@@ -9,9 +9,9 @@ class Interview extends Model
 {
     use HasFactory;
 
-    // protected $fillable = ['date', 'description', 'status', 'client_id'];
 
     protected $fillable = [
+        'name',
         'date',
         'description',
         'status',
