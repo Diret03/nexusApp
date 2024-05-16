@@ -14,7 +14,8 @@
         </div>
         <div class="form-group">
             <label for="description">Requerimientos:</label>
-            <input type="text" class="form-control" id="description" name="description">
+            {{-- <input type="text" class="form-control" id="description" name="description"> --}}
+            <textarea class="form-control" name="description" id="description" rows="5"></textarea>
         </div>
         <div class="form-group">
             <label for="status">Estado:</label>

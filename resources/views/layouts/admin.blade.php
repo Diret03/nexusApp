@@ -86,6 +86,14 @@
             </li>
 
 
+            <!-- Nav Item - Analistas-->
+            <li class="nav-item {{ Nav::isRoute('analysts') }}">
+                <a class="nav-link" href="{{ route('analysts.index') }}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>{{ __('Analistas') }}</span>
+                </a>
+            </li>
+
             <!-- Nav Item - Usuarios-->
             <li class="nav-item {{ Nav::isRoute('users') }}">
                 <a class="nav-link" href="{{ route('users.index') }}">

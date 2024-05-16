@@ -6,6 +6,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\InterviewController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AnalystController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,6 +58,13 @@ Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.e
 Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
+
+Route::get('/analysts', [AnalystController::class, 'index'])->name('analysts.index');
+Route::get('/analysts/create', [AnalystController::class, 'create'])->name('analysts.create');
+Route::post('/analysts', [AnalystController::class, 'store'])->name('analysts.store');
+Route::get('/analysts/{analyst}/edit', [AnalystController::class, 'edit'])->name('analysts.edit');
+Route::put('/analysts/{analyst}', [AnalystController::class, 'update'])->name('analysts.update');
+Route::delete('/analysts/{analyst}', [AnalystController::class, 'destroy'])->name('analysts.destroy');
 
 
 Route::get('/about', function () {
