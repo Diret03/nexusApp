@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\InterviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnalystController;
+use App\Http\Controllers\TaskController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,6 +66,14 @@ Route::post('/analysts', [AnalystController::class, 'store'])->name('analysts.st
 Route::get('/analysts/{analyst}/edit', [AnalystController::class, 'edit'])->name('analysts.edit');
 Route::put('/analysts/{analyst}', [AnalystController::class, 'update'])->name('analysts.update');
 Route::delete('/analysts/{analyst}', [AnalystController::class, 'destroy'])->name('analysts.destroy');
+
+
+Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
+Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
+Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 
 
 Route::get('/about', function () {
