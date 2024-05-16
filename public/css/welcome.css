@@ -1,27 +1,27 @@
-body
-{
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/fondo.jpg); /* Combina la imagen de fondo con un gradiente semitransparente */
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/fondo.jpg);
+    /* Combina la imagen de fondo con un gradiente semitransparente */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
 }
 
-#header
-{
+#header {
     padding: 10px;
     text-align: center;
     margin: 0px;
-    display: flex;;
+    display: flex;
+    ;
     justify-content: space-between;
     color: #f4f4f4;
 }
-ul
-{
+
+ul {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
@@ -30,29 +30,28 @@ ul
     color: #f4f4f4;
     padding-right: 2rem;
 }
-ul li
-{
+
+ul li {
     margin: 40px 10px;
     display: inline;
     justify-content: center;
-    padding: 0px ;
+    padding: 0px;
 }
-ul li a
-{
+
+ul li a {
     text-decoration: none;
     font-size: 20px;
     color: #f4f4f4;
     justify-content: center;
 }
-ul li a:hover
-{
+
+ul li a:hover {
     color: #f4f4f4;
     text-decoration: underline;
     justify-content: center;
-}  
+}
 
-#header img
-{
+#header img {
     width: 300px;
     height: 100px;
     margin: 0px;
@@ -60,15 +59,14 @@ ul li a:hover
     padding-left: 2rem;
 }
 
-.mensaje
-{
+.mensaje {
     margin-top: 200px;
     color: #f4f4f4;
     padding-left: 3rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Nunito', 'Segoe UI', sans-serif;
 }
 
-.mensaje h1{
+.mensaje h1 {
     font-size: 60px;
     font-weight: 700;
     margin: 0px;
@@ -77,10 +75,9 @@ ul li a:hover
     font-style: bold;
 }
 
-.mensaje p{
+.mensaje p {
     font-size: 25px;
     margin: 0px;
     padding: 0px;
     font-style: bold;
 }
-
