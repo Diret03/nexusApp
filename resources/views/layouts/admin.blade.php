@@ -68,13 +68,6 @@
                 {{ __('Info') }}
             </div>
 
-            <!-- Nav Item - Entrevitas-->
-            <li class="nav-item {{ Nav::isRoute('interviews') }}">
-                <a class="nav-link" href="{{ route('interviews.index') }}">
-                    <i class="fas fa-fw fa-folder-open"></i>
-                    <span>{{ __('Entrevistas') }}</span>
-                </a>
-            </li>
 
             <!-- Nav Item - Clientes-->
             <li class="nav-item {{ Nav::isRoute('clients') }}">
@@ -83,6 +76,15 @@
                     <span>{{ __('Clientes') }}</span>
                 </a>
             </li>
+
+            <!-- Nav Item - Entrevitas-->
+            <li class="nav-item {{ Nav::isRoute('interviews') }}">
+                <a class="nav-link" href="{{ route('interviews.index') }}">
+                    <i class="fas fa-fw fa-folder-open"></i>
+                    <span>{{ __('Entrevistas') }}</span>
+                </a>
+            </li>
+
 
             <!-- Nav Item - Proyectos-->
             <li class="nav-item {{ Nav::isRoute('projects') }}">
@@ -98,6 +100,14 @@
                 <a class="nav-link" href="{{ route('analysts.index') }}">
                     <i class="bi bi-file-earmark-person"></i>
                     <span>{{ __('Analistas') }}</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Tareas-->
+            <li class="nav-item {{ Nav::isRoute('tasks') }}">
+                <a class="nav-link" href="{{ route('tasks.index') }}">
+                    <i class="bi bi-list-task"></i>
+                    <span>{{ __('Tareas') }}</span>
                 </a>
             </li>
 
@@ -139,7 +149,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                {{ __('Settings') }}
+                {{ __('Configuración') }}
             </div>
 
             <!-- Nav Item - Profile -->
@@ -184,7 +194,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    {{-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small"
@@ -195,7 +205,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> --}}
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
