@@ -38,7 +38,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">NEXUS</div>
+                <div class="sidebar-brand-text mx-3"><img src="../../../../public/img/Logo.png" alt=""></div>
             </a>
 
             <!-- Divider -->
