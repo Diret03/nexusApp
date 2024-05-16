@@ -19,6 +19,13 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+
     <!-- Styles -->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
@@ -89,7 +96,7 @@
             <!-- Nav Item - Analistas-->
             <li class="nav-item {{ Nav::isRoute('analysts') }}">
                 <a class="nav-link" href="{{ route('analysts.index') }}">
-                    <i class="fas fa-fw fa-users"></i>
+                    <i class="bi bi-file-earmark-person"></i>
                     <span>{{ __('Analistas') }}</span>
                 </a>
             </li>
