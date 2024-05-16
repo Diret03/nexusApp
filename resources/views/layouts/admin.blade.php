@@ -42,10 +42,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/home') }}">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <i class="fa-solid fa-chart-line"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3"><img src="../../../../public/img/Logo.png" alt=""></div>
+                <div class="sidebar-brand-text mx-3">Nexus</div>
             </a>
 
             <!-- Divider -->
