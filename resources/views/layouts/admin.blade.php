@@ -101,6 +101,14 @@
                 </a>
             </li>
 
+            <!-- Nav Item - Tareas-->
+            <li class="nav-item {{ Nav::isRoute('tasks') }}">
+                <a class="nav-link" href="{{ route('tasks.index') }}">
+                    <i class="bi bi-list-task"></i>
+                    <span>{{ __('Tareas') }}</span>
+                </a>
+            </li>
+
             <!-- Nav Item - Usuarios-->
             <li class="nav-item {{ Nav::isRoute('users') }}">
                 <a class="nav-link" href="{{ route('users.index') }}">
