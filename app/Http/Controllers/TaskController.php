@@ -44,7 +44,7 @@ class TaskController extends Controller
     {
         $analysts = Analyst::all();
         $projects = Project::all();
-        return view(request()->segment(1) . '.edit', compact('task', 'analysts', 'projects'));
+        return view(request()->segment(1) . '.tasks.edit', compact('task', 'analysts', 'projects'));
     }
 
     public function update(Request $request, Task $task)
@@ -68,7 +68,7 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         $task->delete();
-        return redirect()->route(request()->segment(1) . '.index')
+        return redirect()->route(request()->segment(1) . '.tasks.index')
             ->with('success', 'Task deleted successfully.');
     }
 }

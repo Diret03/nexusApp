@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.developer')
 
 @section('main-content')
     <div id="content-wrapper" class="d-flex flex-column">

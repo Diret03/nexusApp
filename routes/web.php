@@ -106,9 +106,20 @@ Route::group(['middleware' => ['role:Jefe de desarrollo']], function () {
 });
 
 // Rutas para Analista
+// Route::group(['middleware' => ['role:Analista']], function () {
+//     Route::get('analyst/home', 'HomeController@analystHome')->name('analyst.home');
+//     Route::get('analyst/', [TaskController::class, 'index'])->name('analyst.index');
+//     Route::get('analyst/create', [TaskController::class, 'index'])->name('analyst.create');
+//     Route::get('analyst/{task}/edit', [TaskController::class, 'index'])->name('analyst.edit');
+//     Route::get('analyst/{task}', [TaskController::class, 'index'])->name('analyst.destroy');
+// });
+
 Route::group(['middleware' => ['role:Analista']], function () {
     Route::get('analyst/home', 'HomeController@analystHome')->name('analyst.home');
     Route::get('analyst/tasks', [TaskController::class, 'index'])->name('analyst.tasks.index');
+    Route::get('analyst/tasks/{task}/edit', [TaskController::class, 'edit'])->name('analyst.tasks.edit');
+    Route::put('analyst/tasks/{task}', [TaskController::class, 'update'])->name('analyst.tasks.update');
+    Route::delete('analyst/tasks/{task}', [TaskController::class, 'destroy'])->name('analyst.tasks.destroy');
 });
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
