@@ -7,13 +7,13 @@
             <!-- Encabezado -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                 <!-- Título de la página -->
-                <h1 class="h3 mb-0 text-gray-800">Proyectos</h1>
+                <h1 class="h3 mb-0 text-gray-800">Usuarios</h1>
                 <!-- Botón para agregar -->
-                <a href="{{ route('projects.create') }}" class="btn btn-primary btn-icon-split ml-auto">
+                <a href="{{ route('admin.users.create') }}" class="btn btn-primary btn-icon-split ml-auto">
                     <span class="icon text-white-50">
                         <i class="fas fa-plus"></i>
                     </span>
-                    <span class="text">Agregar Proyecto</span>
+                    <span class="text">Agregar Usuario</span>
                 </a>
             </nav>
             <!-- Contenido de la página -->
@@ -26,38 +26,30 @@
                                 <thead>
                                     <tr>
                                         <th>Nombre</th>
-                                        <th>Cliente</th>
-                                        <th>Entrevista(Contrato)</th>
-                                        <th>Fecha de Inicio</th>
-                                        <th>Fecha de Fin</th>
-                                        <th>Estado</th>
-                                        <th>Porcentaje de Avance</th>
+                                        <th>Apellido</th>
+                                        <th>Email</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($projects as $project)
+                                    @foreach ($users as $user)
                                         <tr>
-                                            <td>{{ $project->name }}</td>
-                                            <td>{{ $project->client->name }}</td>
-                                            <td>{{ $project->interview->name }}</td>
-                                            <td>{{ $project->start_date->format('Y-m-d') }}</td>
-                                            <td>{{ $project->end_date->format('Y-m-d') }}</td>
-                                            <td>{{ $project->status }}</td>
-                                            <td>{{ $project->progress_percentage }}</td>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->last_name }}</td>
+                                            <td>{{ $user->email }}</td>
                                             <td>
                                                 <!-- Botón para editar -->
-                                                <a href="{{ route('projects.edit', $project->id) }}"
+                                                <a href="{{ route('admin.users.edit', $user->id) }}"
                                                     class="btn btn-primary btn-circle btn-sm">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                                 <!-- Formulario para eliminar -->
-                                                <form action="{{ route('projects.destroy', $project->id) }}" method="POST"
+                                                <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
                                                     style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                                        onclick="return confirm('¿Estás seguro de que deseas eliminar este proyecto?')">
+                                                        onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </form>

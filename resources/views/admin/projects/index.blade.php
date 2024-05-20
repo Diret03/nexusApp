@@ -7,13 +7,13 @@
             <!-- Encabezado -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                 <!-- Título de la página -->
-                <h1 class="h3 mb-0 text-gray-800">Tareas</h1>
+                <h1 class="h3 mb-0 text-gray-800">Proyectos</h1>
                 <!-- Botón para agregar -->
-                <a href="{{ route('tasks.create') }}" class="btn btn-primary btn-icon-split ml-auto">
+                <a href="{{ route('admin.projects.create') }}" class="btn btn-primary btn-icon-split ml-auto">
                     <span class="icon text-white-50">
                         <i class="fas fa-plus"></i>
                     </span>
-                    <span class="text">Agregar Tarea</span>
+                    <span class="text">Agregar Proyecto</span>
                 </a>
             </nav>
             <!-- Contenido de la página -->
@@ -26,36 +26,38 @@
                                 <thead>
                                     <tr>
                                         <th>Nombre</th>
+                                        <th>Cliente</th>
+                                        <th>Entrevista(Contrato)</th>
                                         <th>Fecha de Inicio</th>
                                         <th>Fecha de Fin</th>
+                                        <th>Estado</th>
                                         <th>Porcentaje de Avance</th>
-                                        <th>Analista</th>
-                                        <th>Proyecto</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($tasks as $task)
+                                    @foreach ($projects as $project)
                                         <tr>
-                                            <td>{{ $task->name }}</td>
-                                            <td>{{ $task->start_date->format('Y-m-d') }}</td>
-                                            <td>{{ $task->end_date->format('Y-m-d') }}</td>
-                                            <td>{{ $task->progress_percentage }}</td>
-                                            <td>{{ $task->analyst->name }}</td>
-                                            <td>{{ $task->project->name }}</td>
+                                            <td>{{ $project->name }}</td>
+                                            <td>{{ $project->client->name }}</td>
+                                            <td>{{ $project->interview->name }}</td>
+                                            <td>{{ $project->start_date->format('Y-m-d') }}</td>
+                                            <td>{{ $project->end_date->format('Y-m-d') }}</td>
+                                            <td>{{ $project->status }}</td>
+                                            <td>{{ $project->progress_percentage }}</td>
                                             <td>
                                                 <!-- Botón para editar -->
-                                                <a href="{{ route('tasks.edit', $task->id) }}"
+                                                <a href="{{ route('admin.projects.edit', $project->id) }}"
                                                     class="btn btn-primary btn-circle btn-sm">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                                 <!-- Formulario para eliminar -->
-                                                <form action="{{ route('tasks.destroy', $task->id) }}" method="POST"
+                                                <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST"
                                                     style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                                        onclick="return confirm('¿Estás seguro de que deseas eliminar esta tarea?')">
+                                                        onclick="return confirm('¿Estás seguro de que deseas eliminar este proyecto?')">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </form>

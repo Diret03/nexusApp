@@ -4,59 +4,65 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-
 
 class UserController extends Controller
 {
     public function index()
     {
         $users = User::all();
-        return view('users.index', compact('users'));
+        return view(request()->segment(1) . '.users.index', compact('users'));
     }
 
     public function create()
     {
-        return view('users.create');
+        return view(request()->segment(1) . '.users.create');
     }
 
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'name' => 'required|max:255',
-            'last_name' => 'nullable|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8|confirmed',
         ]);
 
-        $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['password'] = bcrypt($validatedData['password']);
 
         User::create($validatedData);
 
-        return redirect()->route('users.index')->with('success', '¡El usuario se ha creado correctamente!');
+        return redirect()->route(request()->segment(1) . '.users.index')
+            ->with('success', 'User created successfully.');
     }
 
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        return view(request()->segment(1) . '.users.edit', compact('user'));
     }
+
     public function update(Request $request, User $user)
     {
         $validatedData = $request->validate([
             'name' => 'required|max:255',
-            'last_name' => 'nullable|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'sometimes|min:8|confirmed',
         ]);
+
+        if ($request->filled('password')) {
+            $validatedData['password'] = bcrypt($validatedData['password']);
+        } else {
+            unset($validatedData['password']);
+        }
 
         $user->update($validatedData);
 
-        return redirect()->route('users.index')->with('success', '¡El usuario se ha actualizado correctamente!');
+        return redirect()->route(request()->segment(1) . '.users.index')
+            ->with('success', 'User updated successfully.');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
-
-        return redirect()->route('users.index')->with('success', '¡El usuario se ha eliminado correctamente!');
+        return redirect()->route(request()->segment(1) . '.users.index')
+            ->with('success', 'User deleted successfully.');
     }
 }

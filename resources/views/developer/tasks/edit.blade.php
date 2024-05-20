@@ -1,8 +1,8 @@
-@extends('layouts.admin')
+@extends('layouts.developer')
 
 @section('main-content')
     <h1>Editar Tarea</h1>
-    <form action="{{ route('tasks.update', $task->id) }}" method="POST">
+    <form action="{{ route('developers.tasks.update', $task->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">

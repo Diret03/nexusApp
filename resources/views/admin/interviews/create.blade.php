@@ -2,7 +2,7 @@
 
 @section('main-content')
     <h1>Crear Entrevista</h1>
-    <form action="{{ route('interviews.store') }}" method="POST">
+    <form action="{{ route('admin.interviews.store') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="name">Nombre:</label>

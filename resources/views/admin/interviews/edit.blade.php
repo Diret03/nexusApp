@@ -2,7 +2,7 @@
 
 @section('main-content')
     <h1>Editar Entrevista</h1>
-    <form action="{{ route('interviews.update', $interview->id) }}" method="POST">
+    <form action="{{ route('admin.interviews.update', $interview->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">

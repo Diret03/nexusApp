@@ -7,18 +7,18 @@
             <!-- Encabezado -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                 <!-- Título de la página -->
-                <h1 class="h3 mb-0 text-gray-800">Clientes</h1>
-                <!-- Botón para agregar cliente -->
-                <a href="{{ route('clients.create') }}" class="btn btn-primary btn-icon-split ml-auto">
+                <h1 class="h3 mb-0 text-gray-800">Entrevistas</h1>
+                <!-- Botón para agregar -->
+                <a href="{{ route('admin.interviews.create') }}" class="btn btn-primary btn-icon-split ml-auto">
                     <span class="icon text-white-50">
                         <i class="fas fa-plus"></i>
                     </span>
-                    <span class="text">Agregar Cliente</span>
+                    <span class="text">Agregar Entrevista</span>
                 </a>
             </nav>
             <!-- Contenido de la página -->
             <div class="container-fluid">
-                <!-- Tabla de clientes -->
+                <!-- Tabla -->
                 <div class="card shadow mb-4">
                     <div class="card-body">
                         <div class="table-responsive">
@@ -26,30 +26,34 @@
                                 <thead>
                                     <tr>
                                         <th>Nombre</th>
-                                        <th>Email</th>
-                                        <th>Teléfono</th>
+                                        <th>Fecha</th>
+                                        <th>Requerimientos</th>
+                                        <th>Estado</th>
+                                        <th>Cliente</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($clients as $client)
+                                    @foreach ($interviews as $interview)
                                         <tr>
-                                            <td>{{ $client->name }}</td>
-                                            <td>{{ $client->email }}</td>
-                                            <td>{{ $client->phone_number }}</td>
+                                            <td>{{ $interview->name }}</td>
+                                            <td>{{ $interview->date->format('Y-m-d') }}</td>
+                                            <td>{{ $interview->description }}</td>
+                                            <td>{{ $interview->status }}</td>
+                                            <td>{{ $interview->client->name }}</td>
                                             <td>
-                                                <!-- Botón para editar cliente -->
-                                                <a href="{{ route('clients.edit', $client->id) }}"
+                                                <!-- Botón para editar -->
+                                                <a href="{{ route('admin.interviews.edit', $interview->id) }}"
                                                     class="btn btn-primary btn-circle btn-sm">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <!-- Formulario para eliminar cliente -->
-                                                <form action="{{ route('clients.destroy', $client->id) }}" method="POST"
-                                                    style="display: inline;">
+                                                <!-- Formulario para eliminar -->
+                                                <form action="{{ route('admin.interviews.destroy', $interview->id) }}"
+                                                    method="POST" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                                        onclick="return confirm('¿Estás seguro de que deseas eliminar este cliente?')">
+                                                        onclick="return confirm('¿Estás seguro de que deseas eliminar esta entrevista?')">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </form>

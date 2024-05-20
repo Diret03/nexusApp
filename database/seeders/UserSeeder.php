@@ -38,6 +38,12 @@ class UserSeeder extends Seeder
                 'last_name' => 'Johnson',
                 'email' => 'alice.johnson@example.com',
                 'password' => Hash::make('password123')
+            ],
+            [
+                'name' => 'Melanie',
+                'last_name' => 'Ullco',
+                'email' => 'melanieU@gmail.com',
+                'password' => Hash::make('melanie123')
             ]
         ]);
     }

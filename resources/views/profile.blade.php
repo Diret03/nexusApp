@@ -34,16 +34,15 @@
                     </figure>
                 </div>
                 <div class="card-body">
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-center">
                                 <h5 class="font-weight-bold">{{ Auth::user()->fullName }}</h5>
-                                <p>Administrador</p>
+                                <p>{{ Auth::user()->getRoleNames()->first() }}</p>
+                                <!-- Mostrar el primer rol del usuario -->
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
 

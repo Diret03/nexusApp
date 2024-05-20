@@ -21,7 +21,6 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 
     <!-- Styles -->
@@ -61,54 +60,22 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                {{ __('Info') }}
+                {{ __('Proyectos y Tareas') }}
             </div>
 
-            <!-- Nav Item - Entrevistas-->
-            <li class="nav-item {{ Nav::isRoute('admin.interviews.index') }}">
-                <a class="nav-link" href="{{ route('admin.interviews.index') }}">
-                    <i class="fas fa-fw fa-folder-open"></i>
-                    <span>{{ __('Entrevistas') }}</span>
-                </a>
-            </li>
-
-            <!-- Nav Item - Clientes-->
-            <li class="nav-item {{ Nav::isRoute('admin.clients.index') }}">
-                <a class="nav-link" href="{{ route('admin.clients.index') }}">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>{{ __('Clientes') }}</span>
-                </a>
-            </li>
-
             <!-- Nav Item - Proyectos-->
-            <li class="nav-item {{ Nav::isRoute('admin.projects.index') }}">
-                <a class="nav-link" href="{{ route('admin.projects.index') }}">
+            <li class="nav-item {{ Nav::isRoute('developer.projects.index') }}">
+                <a class="nav-link" href="{{ route('developer.projects.index') }}">
                     <i class="fas fa-fw fa-percent"></i>
                     <span>{{ __('Proyectos') }}</span>
                 </a>
             </li>
 
-            <!-- Nav Item - Analistas-->
-            <li class="nav-item {{ Nav::isRoute('admin.analysts.index') }}">
-                <a class="nav-link" href="{{ route('admin.analysts.index') }}">
-                    <i class="bi bi-file-earmark-person"></i>
-                    <span>{{ __('Analistas') }}</span>
-                </a>
-            </li>
-
             <!-- Nav Item - Tareas-->
-            <li class="nav-item {{ Nav::isRoute('admin.tasks.index') }}">
-                <a class="nav-link" href="{{ route('admin.tasks.index') }}">
+            <li class="nav-item {{ Nav::isRoute('developer.tasks.index') }}">
+                <a class="nav-link" href="{{ route('developer.tasks.index') }}">
                     <i class="bi bi-list-task"></i>
                     <span>{{ __('Tareas') }}</span>
-                </a>
-            </li>
-
-            <!-- Nav Item - Usuarios-->
-            <li class="nav-item {{ Nav::isRoute('admin.users.index') }}">
-                <a class="nav-link" href="{{ route('admin.users.index') }}">
-                    <i class="fas fa-fw fa fa-user-circle"></i>
-                    <span>{{ __('Usuarios') }}</span>
                 </a>
             </li>
 
@@ -125,14 +92,6 @@
                 <a class="nav-link" href="{{ route('profile') }}">
                     <i class="fas fa-fw fa-user"></i>
                     <span>{{ __('Perfil') }}</span>
-                </a>
-            </li>
-
-            <!-- Nav Item - About -->
-            <li class="nav-item {{ Nav::isRoute('about') }}">
-                <a class="nav-link" href="{{ route('about') }}">
-                    <i class="fas fa-fw fa-hands-helping"></i>
-                    <span>{{ __('Acerca') }}</span>
                 </a>
             </li>
 
@@ -189,8 +148,7 @@
                                     {{ __('Registro de Actividad') }}
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal"
-                                    data-target="#logoutModal">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     {{ __('Cerrar Sesión') }}
                                 </a>

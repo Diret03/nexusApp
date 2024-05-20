@@ -3,7 +3,7 @@
 
 @section('main-content')
     <h1>Crear Cliente</h1>
-    <form action="{{ route('clients.store') }}" method="POST">
+    <form action="{{ route('admin.clients.store') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="name">Nombre:</label>

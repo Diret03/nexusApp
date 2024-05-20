@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('main-content')
-    <h1>Crear Proyecto</h1>
-    <form action="{{ route('projects.store') }}" method="POST">
+    <h1>Crear Tarea</h1>
+    <form action="{{ route('admin.tasks.store') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="name">Nombre:</label>
@@ -29,28 +29,19 @@
             <label for="progress_percentage">Porcentaje de Avance:</label>
             <input type="number" class="form-control" id="progress_percentage" name="progress_percentage">
         </div>
-        {{-- <div class="form-group">
-            <label for="client_id">Entrevista aceptada:</label>
-            <select class="form-control" id="interview_id" name="interview_id">
-                @foreach ($interviews as $interview)
-                    <option value="{{ $interview->id }}">{{ $interview->name }}</option>
-                @endforeach
-            </select>
-        </div> --}}
         <div class="form-group">
-            <label for="interview_id">Entrevista aceptada:</label>
-            <select class="form-control" id="interview_id" name="interview_id">
-                <option value="">Seleccione una entrevista aceptada</option>
-                @foreach ($interviews as $interview)
-                    <option value="{{ $interview->id }}">{{ $interview->name }}</option>
+            <label for="analyst_id">Analista Asignado:</label>
+            <select class="form-control" id="analyst_id" name="analyst_id">
+                @foreach ($analysts as $analyst)
+                    <option value="{{ $analyst->id }}">{{ $analyst->name }}</option>
                 @endforeach
             </select>
         </div>
         <div class="form-group">
-            <label for="client_id">Cliente:</label>
-            <select class="form-control" id="client_id" name="client_id">
-                @foreach ($clients as $client)
-                    <option value="{{ $client->id }}">{{ $client->name }}</option>
+            <label for="project_id">Proyecto Asociado:</label>
+            <select class="form-control" id="project_id" name="project_id">
+                @foreach ($projects as $project)
+                    <option value="{{ $project->id }}">{{ $project->name }}</option>
                 @endforeach
             </select>
         </div>
