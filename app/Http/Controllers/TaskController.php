@@ -19,7 +19,7 @@ class TaskController extends Controller
     {
         $analysts = Analyst::all();
         $projects = Project::all();
-        return view(request()->segment(1) . '.tasks.create', compact('analysts', 'projects'));
+        return view(request()->segment(1) . '.create', compact('analysts', 'projects'));
     }
 
     public function store(Request $request)
@@ -36,7 +36,7 @@ class TaskController extends Controller
 
         Task::create($validatedData);
 
-        return redirect()->route(request()->segment(1) . '.tasks.index')
+        return redirect()->route(request()->segment(1) . '.index')
             ->with('success', 'Task created successfully.');
     }
 
@@ -44,7 +44,7 @@ class TaskController extends Controller
     {
         $analysts = Analyst::all();
         $projects = Project::all();
-        return view(request()->segment(1) . '.tasks.edit', compact('task', 'analysts', 'projects'));
+        return view(request()->segment(1) . '.edit', compact('task', 'analysts', 'projects'));
     }
 
     public function update(Request $request, Task $task)
@@ -61,14 +61,14 @@ class TaskController extends Controller
 
         $task->update($validatedData);
 
-        return redirect()->route(request()->segment(1) . '.tasks.index')
+        return redirect()->route(request()->segment(1) . '.index')
             ->with('success', 'Task updated successfully.');
     }
 
     public function destroy(Task $task)
     {
         $task->delete();
-        return redirect()->route(request()->segment(1) . '.tasks.index')
+        return redirect()->route(request()->segment(1) . '.index')
             ->with('success', 'Task deleted successfully.');
     }
 }
