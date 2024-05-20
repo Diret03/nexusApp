@@ -26,8 +26,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// // Rutas para la página de inicio según el rol del usuario
-// Route::get('/home', 'HomeController@index')->name('home');
+// Rutas para la página de inicio según el rol del usuario
+Route::get('/home', 'HomeController@index')->name('home');
 
 // Rutas para Administrador
 Route::group(['middleware' => ['role:Administrador']], function () {
