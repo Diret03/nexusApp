@@ -10,15 +10,18 @@
                             <p class="card-text">
                                 <strong>Fecha de Inicio:</strong> {{ $task->start_date->format('Y-m-d') }}<br>
                                 <strong>Fecha de Fin:</strong> {{ $task->end_date->format('Y-m-d') }}<br>
+                                <strong>Estado:</strong> {{ $task->status }}<br>
                                 <strong>Porcentaje de Avance:</strong> {{ $task->progress_percentage }}%<br>
                                 <strong>Analista:</strong> {{ $task->analyst->name }}<br>
                                 <strong>Proyecto:</strong> {{ $task->project->name }}
                             </p>
-                            <a href="{{ route('analyst.tasks.edit', $task->id) }}" class="btn btn-primary">Editar</a>
-                            <form action="{{ route('analyst.tasks.destroy', $task->id) }}" method="POST" class="d-inline">
+                            <a href="{{ route('analyst.tasks.edit', $task->id) }}" class="btn btn-primary"><i
+                                    class="bi bi-pencil-square"></i></a>
+                            <form action="{{ route('analyst.tasks.markAsCompleted', $task->id) }}" method="POST"
+                                class="d-inline">
                                 @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                @method('PUT')
+                                <button type="submit" class="btn btn-success"><i class="bi bi-check-circle"></i></button>
                             </form>
                         </div>
                     </div>
