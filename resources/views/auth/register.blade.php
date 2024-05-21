@@ -54,7 +54,7 @@
                                                 name="password_confirmation" placeholder="{{ __('Confirmar Contraseña') }}"
                                                 required>
                                         </div>
-
+<!-- 
                                         <div class="form-group">
                                             <select name="role" class="form-control form-control-user" required>
                                                 <option value="">{{ __('Seleccionar Rol') }}</option>
@@ -63,7 +63,7 @@
                                                 <option value="Jefe de desarrollo">{{ __('Jefe de desarrollo') }}</option>
                                                 <option value="Analista">{{ __('Analista') }}</option>
                                             </select>
-                                        </div>
+                                        </div> -->
 
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary btn-user btn-block">
