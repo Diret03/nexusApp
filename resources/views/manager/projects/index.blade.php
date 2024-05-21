@@ -9,7 +9,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card shadow h-100 border border-dark"> <!-- Clase de borde negro -->
                     <div class="card-body">
-                        <h5 class="card-title">{{ $project->name }}</h5>
+                        <div class="text-x font-weight-bold text-primary text-uppercase mb-3 ">{{ $project->name }}</div>
                         <p class="card-text"><strong>Fecha de Inicio:</strong> {{ $project->start_date->format('Y-m-d') }}
                         </p>
                         <p class="card-text"><strong>Fecha de Fin:</strong> {{ $project->end_date->format('Y-m-d') }}</p>

@@ -22,6 +22,7 @@
             <select class="form-control" id="status" name="status">
                 <option value="0">Archivada</option>
                 <option value="1">Aceptada</option>
+                <option value="2">Pendiente</option>
             </select>
         </div>
         <div class="form-group">
