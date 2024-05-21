@@ -37,7 +37,7 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                         <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Registrarse</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Acerca</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="contact.html">Acerca</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -52,9 +52,8 @@
                             <div class="badge bg-gradient-primary-to-secondary text-white mb-4">
                                 <div class="text-uppercase">Proyectos &middot; Desarrollo &middot; Software</div>
                             </div>
-                            <div class="fs-3 fw-light text-muted">I can help your business to</div>
-                            <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Get online and
-                                    grow fast</span></h1>
+                            <div class="fs-3 fw-light text-muted">Impulsa tu negocio con</div>
+                            <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Soluciones tecnológicas innovadoras</span></h1>
                             <div
                                 class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
                                 <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder"
