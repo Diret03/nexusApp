@@ -23,6 +23,7 @@
             <select class="form-control" id="status" name="status">
                 <option value="0" {{ $interview->status == 0 ? 'selected' : '' }}>Archivado</option>
                 <option value="1" {{ $interview->status == 1 ? 'selected' : '' }}>Aceptado</option>
+                <option value="1" {{ $interview->status == 2 ? 'selected' : '' }}>Pendiente</option>
             </select>
         </div>
         <div class="form-group">

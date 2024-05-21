@@ -24,8 +24,16 @@ class Interview extends Model
 
     public function getStatusAttribute($value)
     {
-        return $value ? 'Aceptada' : 'Archivada';
+        switch ($value) {
+            case 1:
+                return 'Aceptada';
+            case 2:
+                return 'Pendiente';
+            default:
+                return 'Archivada';
+        }
     }
+
 
     public function client()
     {

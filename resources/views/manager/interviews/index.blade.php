@@ -17,55 +17,39 @@
                 </a>
             </nav>
             <!-- Contenido de la página -->
-            <div class="container-fluid">
-                <!-- Tabla -->
-                <div class="card shadow mb-4">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Fecha</th>
-                                        <th>Requerimientos</th>
-                                        <th>Estado</th>
-                                        <th>Cliente</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($interviews as $interview)
-                                        <tr>
-                                            <td>{{ $interview->name }}</td>
-                                            <td>{{ $interview->date->format('Y-m-d') }}</td>
-                                            <td>{{ $interview->description }}</td>
-                                            <td>{{ $interview->status }}</td>
-                                            <td>{{ $interview->client->name }}</td>
-                                            <td>
-                                                <!-- Botón para editar -->
-                                                <a href="{{ route('manager.interviews.edit', $interview->id) }}"
-                                                    class="btn btn-primary btn-circle btn-sm">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                                <!-- Formulario para eliminar -->
-                                                <form action="{{ route('manager.interviews.destroy', $interview->id) }}"
-                                                    method="POST" style="display: inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                                        onclick="return confirm('¿Estás seguro de que deseas eliminar esta entrevista?')">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+
+            <div class="container mt-4">
+                <div class="row">
+                    @foreach ($interviews as $interview)
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $interview->name }}</h5>
+                                    <p class="card-text">
+                                        <strong>Fecha:</strong> {{ $interview->date->format('Y-m-d') }}<br>
+                                        <strong>Descripción:</strong> {{ $interview->description }}<br>
+                                        <strong>Cliente:</strong> {{ $interview->client->name }}
+                                    </p>
+                                    <form action="{{ route('manager.interviews.accept', $interview->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="btn btn-success"><i class="bi bi-check"></i></button>
+                                    </form>
+                                    <form action="{{ route('manager.interviews.archive', $interview->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="btn btn-danger"><i class="bi bi-x"></i></button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
+
             </div>
         </div>
+
     </div>
 @endsection

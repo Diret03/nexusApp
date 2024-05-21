@@ -49,7 +49,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['tasksCount'] }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            <i class="bi bi-list-task fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Entrevistas</div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $widget['interviews'] }}
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $widget['interviewCount'] }}
                                     </div>
                                 </div>
                                 <div class="col">
@@ -94,7 +94,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['users'] }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                            <i class="fas fa-fw fa fa-user-circle fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['clients'] }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            <i class="fas fa-fw fa-users fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['analysts'] }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            <i class="bi bi-file-earmark-person fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>

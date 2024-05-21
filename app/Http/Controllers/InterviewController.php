@@ -14,6 +14,32 @@ class InterviewController extends Controller
         return view(request()->segment(1) . '.interviews.index', compact('interviews'));
     }
 
+    // Método para mostrar solo las entrevistas pendientes
+    public function managerIndex()
+    {
+        $interviews = Interview::where('status', 2)->get();
+        return view('manager.interviews.index', compact('interviews'));
+    }
+
+    // Método para marcar la entrevista como aceptada
+    public function accept($id)
+    {
+        $interview = Interview::findOrFail($id);
+        $interview->status = 1;
+        $interview->save();
+
+        return redirect()->route('manager.interviews.index')->with('success', 'Entrevista aceptada.');
+    }
+
+    // Método para marcar la entrevista como archivada
+    public function archive($id)
+    {
+        $interview = Interview::findOrFail($id);
+        $interview->status = 0;
+        $interview->save();
+
+        return redirect()->route('manager.interviews.index')->with('success', 'Entrevista archivada.');
+    }
     public function create()
     {
         $clients = Client::all();
@@ -39,7 +65,7 @@ class InterviewController extends Controller
     public function edit(Interview $interview)
     {
         $clients = Client::all();
-        return view(request()->segment(1) . '.interviews.edit', compact('interview','clients'));
+        return view(request()->segment(1) . '.interviews.edit', compact('interview', 'clients'));
     }
 
     public function update(Request $request, Interview $interview)

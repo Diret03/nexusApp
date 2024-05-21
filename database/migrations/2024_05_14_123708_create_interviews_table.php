@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->date('date');
             $table->text('description');
-            $table->boolean('status');
+            $table->tinyInteger('status')->default(0); // 0: Archivada, 1: Aceptada, 2: Pendiente
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

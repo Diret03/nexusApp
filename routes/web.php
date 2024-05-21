@@ -89,17 +89,36 @@ Route::group(['middleware' => ['role:Administrador']], function () {
 // });
 
 // Rutas para Gerente
+// Route::group(['middleware' => ['role:Gerente']], function () {
+//     Route::get('manager/home', 'HomeController@managerHome')->name('manager.home');
+//     Route::get('manager/projects', [ProjectController::class, 'index'])->name('manager.projects.index');
+//     Route::get('manager/projects/{project}', [ProjectController::class, 'show'])->name('manager.projects.show');
+//     Route::get('manager/interviews', [InterviewController::class, 'index'])->name('manager.interviews.index');
+//     Route::get('manager/interviews/create', [InterviewController::class, 'create'])->name('manager.interviews.create');
+//     Route::post('manager/interviews', [InterviewController::class, 'store'])->name('manager.interviews.store');
+//     Route::get('manager/interviews/{interview}/edit', [InterviewController::class, 'edit'])->name('manager.interviews.edit');
+//     Route::put('manager/interviews/{interview}', [InterviewController::class, 'update'])->name('manager.interviews.update');
+//     Route::delete('manager/interviews/{interview}', [InterviewController::class, 'destroy'])->name('manager.interviews.destroy');
+// });
+
+// Rutas para Gerente
 Route::group(['middleware' => ['role:Gerente']], function () {
     Route::get('manager/home', 'HomeController@managerHome')->name('manager.home');
     Route::get('manager/projects', [ProjectController::class, 'index'])->name('manager.projects.index');
     Route::get('manager/projects/{project}', [ProjectController::class, 'show'])->name('manager.projects.show');
-    Route::get('manager/interviews', [InterviewController::class, 'index'])->name('manager.interviews.index');
+
+    // Rutas para entrevistas
+    Route::get('manager/interviews', [InterviewController::class, 'managerIndex'])->name('manager.interviews.index');
+    Route::put('manager/interviews/{interview}/accept', [InterviewController::class, 'accept'])->name('manager.interviews.accept');
+    Route::put('manager/interviews/{interview}/archive', [InterviewController::class, 'archive'])->name('manager.interviews.archive');
+
     Route::get('manager/interviews/create', [InterviewController::class, 'create'])->name('manager.interviews.create');
     Route::post('manager/interviews', [InterviewController::class, 'store'])->name('manager.interviews.store');
     Route::get('manager/interviews/{interview}/edit', [InterviewController::class, 'edit'])->name('manager.interviews.edit');
     Route::put('manager/interviews/{interview}', [InterviewController::class, 'update'])->name('manager.interviews.update');
     Route::delete('manager/interviews/{interview}', [InterviewController::class, 'destroy'])->name('manager.interviews.destroy');
 });
+
 
 
 // Rutas para Jefe de Desarrollo

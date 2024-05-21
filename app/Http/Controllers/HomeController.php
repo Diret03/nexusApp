@@ -48,7 +48,7 @@ class HomeController extends Controller
         $users = User::count();
         $projectsCount = Project::count();
         $tasksCount = Task::count();
-        $interviews = Interview::count();
+        $interviewCount = Interview::count();
         $clients = Client::count();
         $analysts = Analyst::count();
 
@@ -56,26 +56,28 @@ class HomeController extends Controller
             'users' => $users,
             'projectsCount' => $projectsCount,
             'tasksCount' => $tasksCount,
-            'interviews' => $interviews,
+            'interviewCount' => $interviewCount,
             'clients' => $clients,
             'analysts' => $analysts,
         ];
 
         $projects = Project::all();  // Obtiene todos los proyectos
         $tasks = Task::all();  // Obtiene todos los proyectos
+        $interviews = Interview::all();  // Obtiene todos las entrevistas
+
 
         /** @var \App\Models\User */
         $user = auth()->user();
 
         // Redirige según el rol del usuario
         if ($user->hasRole('Administrador')) {
-            return view('admin.home', compact('widget', 'projects', 'tasks'));
+            return view('admin.home', compact('widget', 'projects', 'tasks', 'interviews'));
         } elseif ($user->hasRole('Gerente')) {
-            return view('manager.home', compact('widget', 'projects', 'tasks'));
+            return view('manager.home', compact('widget', 'projects', 'tasks', 'interviews'));
         } elseif ($user->hasRole('Jefe de desarrollo')) {
-            return view('developer.home', compact('widget', 'projects', 'tasks'));
+            return view('developer.home', compact('widget', 'projects', 'tasks', 'interviews'));
         } elseif ($user->hasRole('Analista')) {
-            return view('analyst.home', compact('widget', 'projects', 'tasks'));
+            return view('analyst.home', compact('widget', 'projects', 'tasks', 'interviews'));
         } else {
             // Rol no reconocido, redirige a una página por defecto
             return redirect('/');
