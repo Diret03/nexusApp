@@ -142,6 +142,9 @@ Route::get('/profile', 'ProfileController@index')->name('profile')->middleware('
 Route::put('/profile', 'ProfileController@update')->name('profile.update');
 
 
+// Route::get('/about', function () {
+//     return view('about');
+// })->name('about');
 Route::get('/about', function () {
     return view('about');
-})->name('about');
+})->name('about')->middleware('role.about');
