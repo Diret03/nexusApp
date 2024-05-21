@@ -28,6 +28,7 @@
                                         <th>Nombre</th>
                                         <th>Apellido</th>
                                         <th>Email</th>
+                                        <th>Rol</th> <!-- Nueva columna para el rol -->
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -37,6 +38,8 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->last_name }}</td>
                                             <td>{{ $user->email }}</td>
+                                            <td>{{ $user->roles->pluck('name')->first() }}</td>
+                                            <!-- Mostrar el rol del usuario -->
                                             <td>
                                                 <!-- Botón para editar -->
                                                 <a href="{{ route('admin.users.edit', $user->id) }}"
