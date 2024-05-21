@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Project;
+use App\Models\Interview;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Spatie\Permission\Traits\HasRoles;
@@ -45,11 +46,13 @@ class HomeController extends Controller
         $users = User::count();
         $projects = Project::count();
         $tasks = Task::count();
+        $interviews = Interview::count();
 
         $widget = [
             'users' => $users,
             'projects' => $projects,
             'tasks' => $tasks,
+            'interviews' => $interviews,
         ];
 
         /** @var \App\Models\User */

@@ -76,16 +76,30 @@ Route::group(['middleware' => ['role:Administrador']], function () {
 });
 
 // Rutas para Gerente
+// Route::group(['middleware' => ['role:Gerente']], function () {
+//     // Route::get('manager/home', 'HomeController@managerHome')->name('manager.home');
+//     Route::get('manager/interviews', [InterviewController::class, 'index'])->name('manager.interviews.index');
+//     Route::get('manager/interviews/create', [InterviewController::class, 'create'])->name('manager.interviews.create');
+//     Route::post('manager/interviews', [InterviewController::class, 'store'])->name('manager.interviews.store');
+//     Route::get('manager/interviews/{interview}/edit', [InterviewController::class, 'edit'])->name('manager.interviews.edit');
+//     Route::put('manager.interviews/{interview}', [InterviewController::class, 'update'])->name('manager.interviews.update');
+//     Route::delete('manager.interviews/{interview}', [InterviewController::class, 'destroy'])->name('manager.interviews.destroy');
+//     Route::get('manager/projects', [ProjectController::class, 'index'])->name('manager.projects.index');
+// });
+
+// Rutas para Gerente
 Route::group(['middleware' => ['role:Gerente']], function () {
-    // Route::get('manager/home', 'HomeController@managerHome')->name('manager.home');
+    Route::get('manager/home', 'HomeController@managerHome')->name('manager.home');
+    Route::get('manager/projects', [ProjectController::class, 'index'])->name('manager.projects.index');
+    Route::get('manager/projects/{project}', [ProjectController::class, 'show'])->name('manager.projects.show');
     Route::get('manager/interviews', [InterviewController::class, 'index'])->name('manager.interviews.index');
     Route::get('manager/interviews/create', [InterviewController::class, 'create'])->name('manager.interviews.create');
     Route::post('manager/interviews', [InterviewController::class, 'store'])->name('manager.interviews.store');
     Route::get('manager/interviews/{interview}/edit', [InterviewController::class, 'edit'])->name('manager.interviews.edit');
-    Route::put('manager.interviews/{interview}', [InterviewController::class, 'update'])->name('manager.interviews.update');
-    Route::delete('manager.interviews/{interview}', [InterviewController::class, 'destroy'])->name('manager.interviews.destroy');
-    Route::get('manager/projects', [ProjectController::class, 'index'])->name('manager.projects.index');
+    Route::put('manager/interviews/{interview}', [InterviewController::class, 'update'])->name('manager.interviews.update');
+    Route::delete('manager/interviews/{interview}', [InterviewController::class, 'destroy'])->name('manager.interviews.destroy');
 });
+
 
 // Rutas para Jefe de Desarrollo
 Route::group(['middleware' => ['role:Jefe de desarrollo']], function () {
@@ -122,8 +136,11 @@ Route::group(['middleware' => ['role:Analista']], function () {
     Route::delete('analyst/tasks/{task}', [TaskController::class, 'destroy'])->name('analyst.tasks.destroy');
 });
 
-Route::get('/profile', 'ProfileController@index')->name('profile');
+// Route::get('/profile', 'ProfileController@index')->name('profile');
+// Route::put('/profile', 'ProfileController@update')->name('profile.update');
+Route::get('/profile', 'ProfileController@index')->name('profile')->middleware('role.profile');
 Route::put('/profile', 'ProfileController@update')->name('profile.update');
+
 
 Route::get('/about', function () {
     return view('about');

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends($layout)
 
 @section('main-content')
     <!-- Page Heading -->
@@ -59,9 +59,8 @@
                 <div class="card-body">
 
                     <form method="POST" action="{{ route('profile.update') }}" autocomplete="off">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                        <input type="hidden" name="_method" value="PUT">
+                        @csrf
+                        @method('PUT')
 
                         <h6 class="heading-small text-muted mb-4">Información de usuario</h6>
 
@@ -72,14 +71,14 @@
                                         <label class="form-control-label" for="name">Nombre<span
                                                 class="small text-danger">*</span></label>
                                         <input type="text" id="name" class="form-control" name="name"
-                                            placeholder="Name" value="{{ old('name', Auth::user()->name) }}">
+                                            placeholder="Nombre" value="{{ old('name', Auth::user()->name) }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="last_name">Apellido</label>
                                         <input type="text" id="last_name" class="form-control" name="last_name"
-                                            placeholder="Last name" value="{{ old('last_name', Auth::user()->last_name) }}">
+                                            placeholder="Apellido" value="{{ old('last_name', Auth::user()->last_name) }}">
                                     </div>
                                 </div>
                             </div>
