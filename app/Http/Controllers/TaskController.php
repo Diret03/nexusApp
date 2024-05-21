@@ -15,11 +15,29 @@ class TaskController extends Controller
         return view(request()->segment(1) . '.tasks.index', compact('tasks'));
     }
 
+
+
+    public function analystIndex()
+    {
+        $tasks = Task::whereNotIn('status', ['cancelled', 'completed'])->get();
+        return view('analyst.tasks.index', compact('tasks'));
+    }
+
+    public function markAsCompleted($id)
+    {
+        $task = Task::findOrFail($id);
+        $task->status = 'completed';
+        $task->progress_percentage = 100;
+        $task->save();
+
+        return redirect()->route('analyst.tasks.index')->with('success', 'Tarea marcada como completada.');
+    }
+
     public function create()
     {
         $analysts = Analyst::all();
         $projects = Project::all();
-        return view(request()->segment(1) . '.create', compact('analysts', 'projects'));
+        return view(request()->segment(1) . '.tasks.create', compact('analysts', 'projects'));
     }
 
     public function store(Request $request)
@@ -36,7 +54,7 @@ class TaskController extends Controller
 
         Task::create($validatedData);
 
-        return redirect()->route(request()->segment(1) . '.index')
+        return redirect()->route(request()->segment(1) . '.tasks.index')
             ->with('success', 'Task created successfully.');
     }
 
@@ -61,7 +79,7 @@ class TaskController extends Controller
 
         $task->update($validatedData);
 
-        return redirect()->route(request()->segment(1) . '.index')
+        return redirect()->route(request()->segment(1) . '.tasks.index')
             ->with('success', 'Task updated successfully.');
     }
 

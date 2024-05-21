@@ -65,27 +65,42 @@ Route::group(['middleware' => ['role:Administrador']], function () {
     Route::post('admin/analysts', [AnalystController::class, 'store'])->name('admin.analysts.store');
     Route::get('admin/analysts/{analyst}/edit', [AnalystController::class, 'edit'])->name('admin.analysts.edit');
     Route::put('admin/analysts/{analyst}', [AnalystController::class, 'update'])->name('admin.analysts.update');
-    Route::delete('admin.analysts/{analyst}', [AnalystController::class, 'destroy'])->name('admin.analysts.destroy');
+    Route::delete('admin/analysts/{analyst}', [AnalystController::class, 'destroy'])->name('admin.analysts.destroy');
+
 
     Route::get('admin/tasks', [TaskController::class, 'index'])->name('admin.tasks.index');
     Route::get('admin/tasks/create', [TaskController::class, 'create'])->name('admin.tasks.create');
     Route::post('admin/tasks', [TaskController::class, 'store'])->name('admin.tasks.store');
-    Route::get('admin.tasks/{task}/edit', [TaskController::class, 'edit'])->name('admin.tasks.edit');
-    Route::put('admin.tasks/{task}', [TaskController::class, 'update'])->name('admin.tasks.update');
+    Route::get('admin/tasks/{task}/edit', [TaskController::class, 'edit'])->name('admin.tasks.edit');
+    Route::put('admin/tasks/{task}', [TaskController::class, 'update'])->name('admin.tasks.update');
     Route::delete('admin/tasks/{task}', [TaskController::class, 'destroy'])->name('admin.tasks.destroy');
 });
 
 // Rutas para Gerente
+// Route::group(['middleware' => ['role:Gerente']], function () {
+//     // Route::get('manager/home', 'HomeController@managerHome')->name('manager.home');
+//     Route::get('manager/interviews', [InterviewController::class, 'index'])->name('manager.interviews.index');
+//     Route::get('manager/interviews/create', [InterviewController::class, 'create'])->name('manager.interviews.create');
+//     Route::post('manager/interviews', [InterviewController::class, 'store'])->name('manager.interviews.store');
+//     Route::get('manager/interviews/{interview}/edit', [InterviewController::class, 'edit'])->name('manager.interviews.edit');
+//     Route::put('manager.interviews/{interview}', [InterviewController::class, 'update'])->name('manager.interviews.update');
+//     Route::delete('manager.interviews/{interview}', [InterviewController::class, 'destroy'])->name('manager.interviews.destroy');
+//     Route::get('manager/projects', [ProjectController::class, 'index'])->name('manager.projects.index');
+// });
+
+// Rutas para Gerente
 Route::group(['middleware' => ['role:Gerente']], function () {
-    // Route::get('manager/home', 'HomeController@managerHome')->name('manager.home');
+    Route::get('manager/home', 'HomeController@managerHome')->name('manager.home');
+    Route::get('manager/projects', [ProjectController::class, 'index'])->name('manager.projects.index');
+    Route::get('manager/projects/{project}', [ProjectController::class, 'show'])->name('manager.projects.show');
     Route::get('manager/interviews', [InterviewController::class, 'index'])->name('manager.interviews.index');
     Route::get('manager/interviews/create', [InterviewController::class, 'create'])->name('manager.interviews.create');
     Route::post('manager/interviews', [InterviewController::class, 'store'])->name('manager.interviews.store');
     Route::get('manager/interviews/{interview}/edit', [InterviewController::class, 'edit'])->name('manager.interviews.edit');
-    Route::put('manager.interviews/{interview}', [InterviewController::class, 'update'])->name('manager.interviews.update');
-    Route::delete('manager.interviews/{interview}', [InterviewController::class, 'destroy'])->name('manager.interviews.destroy');
-    Route::get('manager/projects', [ProjectController::class, 'index'])->name('manager.projects.index');
+    Route::put('manager/interviews/{interview}', [InterviewController::class, 'update'])->name('manager.interviews.update');
+    Route::delete('manager/interviews/{interview}', [InterviewController::class, 'destroy'])->name('manager.interviews.destroy');
 });
+
 
 // Rutas para Jefe de Desarrollo
 Route::group(['middleware' => ['role:Jefe de desarrollo']], function () {
@@ -93,38 +108,47 @@ Route::group(['middleware' => ['role:Jefe de desarrollo']], function () {
     Route::get('developer/projects', [ProjectController::class, 'index'])->name('developer.projects.index');
     Route::get('developer/projects/create', [ProjectController::class, 'create'])->name('developer.projects.create');
     Route::post('developer/projects', [ProjectController::class, 'store'])->name('developer.projects.store');
-    Route::get('developer.projects/{project}/edit', [ProjectController::class, 'edit'])->name('developer.projects.edit');
-    Route::put('developer.projects/{project}', [ProjectController::class, 'update'])->name('developer.projects.update');
+    Route::get('developer/projects/{project}/edit', [ProjectController::class, 'edit'])->name('developer.projects.edit');
+    Route::put('developer/projects/{project}', [ProjectController::class, 'update'])->name('developer.projects.update');
     Route::delete('developer.projects/{project}', [ProjectController::class, 'destroy'])->name('developer.projects.destroy');
 
     Route::get('developer/tasks', [TaskController::class, 'index'])->name('developer.tasks.index');
-    Route::get('developer.tasks/create', [TaskController::class, 'create'])->name('developer.tasks.create');
-    Route::post('developer.tasks', [TaskController::class, 'store'])->name('developer.tasks.store');
-    Route::get('developer.tasks/{task}/edit', [TaskController::class, 'edit'])->name('developer.tasks.edit');
-    Route::put('developer.tasks/{task}', [TaskController::class, 'update'])->name('developer.tasks.update');
-    Route::delete('developer.tasks/{task}', [TaskController::class, 'destroy'])->name('developer.tasks.destroy');
+    Route::get('developer/tasks/create', [TaskController::class, 'create'])->name('developer.tasks.create');
+    Route::post('developer/tasks', [TaskController::class, 'store'])->name('developer.tasks.store');
+    Route::get('developer/tasks/{task}/edit', [TaskController::class, 'edit'])->name('developer.tasks.edit');
+    Route::put('developer/tasks/{task}', [TaskController::class, 'update'])->name('developer.tasks.update');
+    Route::delete('developer/tasks/{task}', [TaskController::class, 'destroy'])->name('developer.tasks.destroy');
 });
 
-// Rutas para Analista
 // Route::group(['middleware' => ['role:Analista']], function () {
 //     Route::get('analyst/home', 'HomeController@analystHome')->name('analyst.home');
-//     Route::get('analyst/', [TaskController::class, 'index'])->name('analyst.index');
-//     Route::get('analyst/create', [TaskController::class, 'index'])->name('analyst.create');
-//     Route::get('analyst/{task}/edit', [TaskController::class, 'index'])->name('analyst.edit');
-//     Route::get('analyst/{task}', [TaskController::class, 'index'])->name('analyst.destroy');
+//     Route::get('analyst/tasks', [TaskController::class, 'index'])->name('analyst.tasks.index');
+//     Route::get('analyst/tasks/{task}/edit', [TaskController::class, 'edit'])->name('analyst.tasks.edit');
+//     Route::put('analyst/tasks/{task}', [TaskController::class, 'update'])->name('analyst.tasks.update');
+//     Route::delete('analyst/tasks/{task}', [TaskController::class, 'destroy'])->name('analyst.tasks.destroy');
 // });
 
+// Rutas para Analista
 Route::group(['middleware' => ['role:Analista']], function () {
     Route::get('analyst/home', 'HomeController@analystHome')->name('analyst.home');
-    Route::get('analyst/tasks', [TaskController::class, 'index'])->name('analyst.tasks.index');
+    Route::get('analyst/tasks', [TaskController::class, 'analystIndex'])->name('analyst.tasks.index');
     Route::get('analyst/tasks/{task}/edit', [TaskController::class, 'edit'])->name('analyst.tasks.edit');
     Route::put('analyst/tasks/{task}', [TaskController::class, 'update'])->name('analyst.tasks.update');
     Route::delete('analyst/tasks/{task}', [TaskController::class, 'destroy'])->name('analyst.tasks.destroy');
+    Route::put('analyst/tasks/{task}/complete', [TaskController::class, 'markAsCompleted'])->name('analyst.tasks.markAsCompleted');
 });
 
-Route::get('/profile', 'ProfileController@index')->name('profile');
+
+
+// Route::get('/profile', 'ProfileController@index')->name('profile');
+// Route::put('/profile', 'ProfileController@update')->name('profile.update');
+Route::get('/profile', 'ProfileController@index')->name('profile')->middleware('role.profile');
 Route::put('/profile', 'ProfileController@update')->name('profile.update');
 
+
+// Route::get('/about', function () {
+//     return view('about');
+// })->name('about');
 Route::get('/about', function () {
     return view('about');
-})->name('about');
+})->name('about')->middleware('role.about');

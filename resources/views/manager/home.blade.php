@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.manager')
 
 @section('main-content')
     <!-- Page Heading -->
@@ -27,9 +27,11 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">{{ __('Proyectos') }}
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Entrevistas</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['interviews'] }}</div>
+                            {{-- <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">{{ __('Projects') }}
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['projectsCount'] }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['projects'] }}</div> --}}
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -45,8 +47,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Tareas</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['tasksCount'] }}</div>
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Ganancias (Anual)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -62,11 +64,10 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Entrevistas</div>
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tareas</div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $widget['interviews'] }}
-                                    </div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
                                 </div>
                                 <div class="col">
                                     <div class="progress progress-sm mr-2">
@@ -83,6 +84,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Users -->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-warning shadow h-100 py-2">
@@ -102,43 +104,6 @@
         </div>
     </div>
 
-
-    <div class="row">
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-danger shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Clientes</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['clients'] }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary  text-uppercase mb-1">Analistas</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['analysts'] }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
     <div class="row">
 
         <!-- Content Column -->
@@ -150,34 +115,35 @@
                     <h6 class="m-0 font-weight-bold text-primary">Proyectos</h6>
                 </div>
                 <div class="card-body">
-                    @foreach ($projects as $project)
-                        <h4 class="small font-weight-bold">{{ $project->name }} <span
-                                class="float-right">{{ $project->progress_percentage }}%</span></h4>
-                        <div class="progress mb-4">
-                            @php
-                                $progressClass = '';
-                                if ($project->progress_percentage <= 20) {
-                                    $progressClass = 'bg-danger';
-                                } elseif ($project->progress_percentage <= 40) {
-                                    $progressClass = 'bg-warning';
-                                } elseif ($project->progress_percentage <= 60) {
-                                    $progressClass = '';
-                                } elseif ($project->progress_percentage <= 80) {
-                                    $progressClass = 'bg-info';
-                                } else {
-                                    $progressClass = 'bg-success';
-                                }
-                            @endphp
-                            <div class="progress-bar {{ $progressClass }}" role="progressbar"
-                                style="width: {{ $project->progress_percentage }}%"
-                                aria-valuenow="{{ $project->progress_percentage }}" aria-valuemin="0" aria-valuemax="100">
-                            </div>
-                        </div>
-                    @endforeach
+                    <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
                 </div>
             </div>
 
-            {{-- <!-- Color System -->
+            <!-- Color System -->
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="card bg-primary text-white shadow">
@@ -227,46 +193,30 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
 
         </div>
 
         <div class="col-lg-6 mb-4">
 
-            <!-- Task Card Example -->
+            <!-- Illustrations -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Tareas</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Imagenes</h6>
                 </div>
                 <div class="card-body">
-                    @foreach ($tasks as $task)
-                        <h4 class="small font-weight-bold">{{ $task->name }} <span
-                                class="float-right">{{ $task->progress_percentage }}%</span></h4>
-                        <div class="progress mb-4">
-                            @php
-                                $progressClass = '';
-                                if ($task->progress_percentage <= 20) {
-                                    $progressClass = 'bg-danger';
-                                } elseif ($task->progress_percentage <= 40) {
-                                    $progressClass = 'bg-warning';
-                                } elseif ($task->progress_percentage <= 60) {
-                                    $progressClass = '';
-                                } elseif ($task->progress_percentage <= 80) {
-                                    $progressClass = 'bg-info';
-                                } else {
-                                    $progressClass = 'bg-success';
-                                }
-                            @endphp
-                            <div class="progress-bar {{ $progressClass }}" role="progressbar"
-                                style="width: {{ $task->progress_percentage }}%"
-                                aria-valuenow="{{ $task->progress_percentage }}" aria-valuemin="0" aria-valuemax="100">
-                            </div>
-                        </div>
-                    @endforeach
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                            src="{{ asset('img/svg/undraw_editable_dywm.svg') }}" alt="">
+                    </div>
+                    <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow"
+                            href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images
+                        that you can use completely free and without attribution!</p>
+                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw →</a>
                 </div>
             </div>
 
-            {{-- <!-- Approach -->
+            <!-- Approach -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
@@ -278,7 +228,7 @@
                     <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap
                         framework, especially the utility classes.</p>
                 </div>
-            </div> --}}
+            </div>
 
         </div>
     </div>

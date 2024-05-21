@@ -61,14 +61,22 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                {{ __('Tareas') }}
+                {{ __('Info') }}
             </div>
 
-            <!-- Nav Item - Tareas -->
-            <li class="nav-item {{ Nav::isRoute('analyst.tasks.index') }}">
-                <a class="nav-link" href="{{ route('analyst.tasks.index') }}">
-                    <i class="bi bi-list-task"></i>
-                    <span>{{ __('Ver Tareas') }}</span>
+            <!-- Nav Item - Entrevistas-->
+            <li class="nav-item {{ Nav::isRoute('manager.interviews.index') }}">
+                <a class="nav-link" href="{{ route('manager.interviews.index') }}">
+                    <i class="fas fa-fw fa-folder-open"></i>
+                    <span>{{ __('Entrevistas') }}</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Proyectos-->
+            <li class="nav-item {{ Nav::isRoute('manager.projects.index') }}">
+                <a class="nav-link" href="{{ route('manager.projects.index') }}">
+                    <i class="fas fa-fw fa-percent"></i>
+                    <span>{{ __('Proyectos') }}</span>
                 </a>
             </li>
 
@@ -87,6 +95,7 @@
                     <span>{{ __('Perfil') }}</span>
                 </a>
             </li>
+
             <!-- Nav Item - About -->
             <li class="nav-item {{ Nav::isRoute('about') }}">
                 <a class="nav-link" href="{{ route('about') }}">
@@ -94,6 +103,7 @@
                     <span>{{ __('Acerca') }}</span>
                 </a>
             </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -220,8 +230,4 @@
     <!-- Scripts -->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-</body>
-
-</html>
+    <script src="{{ asset('vendor/jquery-easing/jquery.easing

@@ -16,9 +16,9 @@ class UserRoleSeeder extends Seeder
         // Asignar roles a los usuarios según el UserSeeder
         $users = [
             1 => 'Administrador',
-            2 => 'Gerente',
+            2 => 'Analista',
             3 => 'Jefe de desarrollo',
-            4 => 'Analista',
+            4 => 'Gerente',
             5 => 'Administrador'
         ];
 

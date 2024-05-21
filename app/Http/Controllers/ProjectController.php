@@ -15,6 +15,11 @@ class ProjectController extends Controller
         return view(request()->segment(1) . '.projects.index', compact('projects'));
     }
 
+    public function show(Project $project)
+    {
+        return view('manager.projects.show', compact('project'));
+    }
+
     public function create()
     {
         $clients = Client::all(); // Obtener todos los clientes desde la base de datos

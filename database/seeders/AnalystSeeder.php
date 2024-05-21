@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Analyst;
 
 class AnalystSeeder extends Seeder
 {
@@ -13,22 +14,16 @@ class AnalystSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('analysts')->insert([
-            [
-                'name' => 'Analyst One',
-                'email' => 'analyst.one@example.com',
-                'phone_number' => '1231231234'
-            ],
-            [
-                'name' => 'Analyst Two',
-                'email' => 'analyst.two@example.com',
-                'phone_number' => '3213214321'
-            ],
-            [
-                'name' => 'Analyst Three',
-                'email' => 'analyst.three@example.com',
-                'phone_number' => '4564564567'
-            ]
-        ]);
+        $analysts = [
+            ['name' => 'María Pérez', 'email' => 'maria.perez@nexus.com', 'phone_number' => '555-1234'],
+            ['name' => 'Carlos Gómez', 'email' => 'carlos.gomez@nexus.com', 'phone_number' => '555-5678'],
+            ['name' => 'Lucía Fernández', 'email' => 'lucia.fernandez@nexus.com', 'phone_number' => '555-9101'],
+            ['name' => 'Javier Martínez', 'email' => 'javier.martinez@nexus.com', 'phone_number' => '555-1122'],
+            ['name' => 'Ana Sánchez', 'email' => 'ana.sanchez@nexus.com', 'phone_number' => '555-3344'],
+        ];
+
+        foreach ($analysts as $analyst) {
+            Analyst::create($analyst);
+        }
     }
 }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Client;
 
 class ClientSeeder extends Seeder
 {
@@ -13,22 +14,16 @@ class ClientSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('clients')->insert([
-            [
-                'name' => 'Client One',
-                'email' => 'client.one@example.com',
-                'phone_number' => '1234567890'
-            ],
-            [
-                'name' => 'Client Two',
-                'email' => 'client.two@example.com',
-                'phone_number' => '0987654321'
-            ],
-            [
-                'name' => 'Client Three',
-                'email' => 'client.three@example.com',
-                'phone_number' => '1122334455'
-            ]
-        ]);
+        $clients = [
+            ['name' => 'Tecnologías Avanzadas S.A.', 'email' => 'contacto@tecnologias.com', 'phone_number' => '555-2233'],
+            ['name' => 'Innova Software', 'email' => 'info@innova.com', 'phone_number' => '555-4455'],
+            ['name' => 'Soluciones Empresariales', 'email' => 'ventas@soluciones.com', 'phone_number' => '555-6677'],
+            ['name' => 'Desarrollo Digital', 'email' => 'soporte@desarrollodigital.com', 'phone_number' => '555-8899'],
+            ['name' => 'Tech Innovations', 'email' => 'servicio@techinnovations.com', 'phone_number' => '555-0011'],
+        ];
+
+        foreach ($clients as $client) {
+            Client::create($client);
+        }
     }
 }

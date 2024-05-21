@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Project;
+use App\Models\Interview;
 use App\Models\Task;
+use App\Models\Client;
+use App\Models\Analyst;
 use Illuminate\Http\Request;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Support\Facades\Auth;
@@ -43,27 +46,36 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::count();
-        $projects = Project::count();
-        $tasks = Task::count();
+        $projectsCount = Project::count();
+        $tasksCount = Task::count();
+        $interviews = Interview::count();
+        $clients = Client::count();
+        $analysts = Analyst::count();
 
         $widget = [
             'users' => $users,
-            'projects' => $projects,
-            'tasks' => $tasks,
+            'projectsCount' => $projectsCount,
+            'tasksCount' => $tasksCount,
+            'interviews' => $interviews,
+            'clients' => $clients,
+            'analysts' => $analysts,
         ];
+
+        $projects = Project::all();  // Obtiene todos los proyectos
+        $tasks = Task::all();  // Obtiene todos los proyectos
 
         /** @var \App\Models\User */
         $user = auth()->user();
 
         // Redirige según el rol del usuario
         if ($user->hasRole('Administrador')) {
-            return view('admin.home', compact('widget'));
+            return view('admin.home', compact('widget', 'projects', 'tasks'));
         } elseif ($user->hasRole('Gerente')) {
-            return view('manager.home', compact('widget'));
+            return view('manager.home', compact('widget', 'projects', 'tasks'));
         } elseif ($user->hasRole('Jefe de desarrollo')) {
-            return view('developer.home', compact('widget'));
+            return view('developer.home', compact('widget', 'projects', 'tasks'));
         } elseif ($user->hasRole('Analista')) {
-            return view('analyst.home', compact('widget'));
+            return view('analyst.home', compact('widget', 'projects', 'tasks'));
         } else {
             // Rol no reconocido, redirige a una página por defecto
             return redirect('/');
