@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Auth;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -29,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::WELCOME;
 
     /**
      * Create a new controller instance.
@@ -40,6 +42,8 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -54,7 +58,7 @@ class RegisterController extends Controller
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'role' => ['required', 'string', 'exists:roles,name'],
+            // 'role' => ['required', 'string', 'exists:roles,name'],
         ]);
     }
 
@@ -73,8 +77,14 @@ class RegisterController extends Controller
             'password' => $data['password'],
         ]);
 
-        $user->assignRole($data['role']);
+        // $user->assignRole($data['role']);
 
         return $user;
     }
+
+    protected function registered(Request $request, $user)
+    {
+    return redirect($this->redirectPath())->with('success', 'Se ha registrado correctamente, espere que el administrador le asigne un rol.');
+    }
+    
 }
