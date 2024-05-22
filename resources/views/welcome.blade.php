@@ -23,6 +23,19 @@
 
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
+
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+        @if (session('info'))
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                {{ session('info') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
             <div class="container px-5">
@@ -53,7 +66,8 @@
                                 <div class="text-uppercase">Proyectos &middot; Desarrollo &middot; Software</div>
                             </div>
                             <div class="fs-3 fw-light text-muted">Impulsa tu negocio con</div>
-                            <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Soluciones tecnológicas innovadoras</span></h1>
+                            <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Soluciones
+                                    tecnológicas innovadoras</span></h1>
                             <div
                                 class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
                                 <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder"
@@ -382,28 +396,29 @@
             </div>
         </section>
     </main> --}}
-        <!-- Footer-->
-        {{-- <footer class="bg-white py-4 mt-auto">
+    </main>
+    <!-- Footer-->
+    {{-- <footer class="bg-white py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                     Copyright &copy; UTN 2024
                 </div>
             </div>
         </footer> --}}
-        <footer class="bg-white py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-12 text-center">
-                        <p class="m-0">Copyright &copy; UTN 2024</p>
-                    </div>
+    <footer class="bg-white py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 text-center">
+                    <p class="m-0">Copyright &copy; UTN 2024</p>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="{{ asset('js/scripts.css') }}"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{{ asset('js/scripts.css') }}"></script>
 </body>
 
 </html>

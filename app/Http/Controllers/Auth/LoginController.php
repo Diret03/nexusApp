@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -42,5 +43,22 @@ class LoginController extends Controller
     {
         session()->flash('success', 'Se ha ingresado correctamente');
         return $this->redirectTo;
+    }
+
+    /**
+     * The user has been authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        if (!$user->roles()->exists()) {
+            auth()->logout();
+            return redirect('/')->with('info', 'Espere a que el administrador le asigne un rol.');
+        }
+
+        return redirect()->intended($this->redirectPath());
     }
 }
